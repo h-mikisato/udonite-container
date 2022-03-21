@@ -7,10 +7,10 @@ db:
   user: ''
   password: ''
 storage:
-  imageDataPath: '/localdata/image/'
+  imageDataPath: '/var/www/public_html/image/'
   imageUrlPath: 'https://localhost.example/image/'
   imageStorageMaxSize: 50  #MBtyte
-  audioDataPath: '/localdata/audio/'
+  audioDataPath: '/var/www/public_html/audio/'
   audioUrlPath: 'https://localhost.example/audio/'
   audioStorageMaxSize: 50  #MBtyte
 setting: 
