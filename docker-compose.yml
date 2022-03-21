@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  udonite-server:
+    build:
+      context: ./udonite-server
+      dockerfile: Dockerfile
+    volumes:
+      - type: bind
+        source: ./public_html
+        target: /var/www/public_html
+  nginx-prod:
+    build:
+      context: ./nginx-prod
+      dockerfile: Dockerfile
+    depends_on:
+      - udonite-server
+    ports:
+      - "80:80"
+    volumes:
+      - type: bind
+        source: ./public_html
+        target: /var/www/public_html
+        read_only: true

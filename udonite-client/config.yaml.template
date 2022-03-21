@@ -1,0 +1,6 @@
+app: #未使用
+dice:
+  url: https://test.example/api #bcDice-api server URL
+  version: 2
+server:
+  url: https://test.example/ #Udonite server URL

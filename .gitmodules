@@ -1,0 +1,6 @@
+[submodule "udonite-client/Udonite"]
+	path = udonite-client/Udonite
+	url = https://github.com/Mafty-Hs/Udonite.git
+[submodule "udonite-server/Udonite-Server"]
+	path = udonite-server/Udonite-Server
+	url = https://github.com/Mafty-Hs/Udonite-Server.git
