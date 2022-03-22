@@ -1,6 +1,6 @@
 #!/bin/sh
 set -e
-. ./id.env
+. ./.env
 
 docker build \
   --build-arg USERNAME=$USERNAME \
