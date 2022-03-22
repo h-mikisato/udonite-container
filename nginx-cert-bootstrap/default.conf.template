@@ -1,0 +1,7 @@
+server {
+    listen 80;
+    listen [::]:80;
+    server_name ${NGINX_HOST};
+
+    root /var/www/public_html;
+}
