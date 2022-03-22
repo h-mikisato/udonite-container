@@ -1,11 +1,22 @@
 FROM node:16-alpine
 
+EXPOSE 8000
+
+ARG USERNAME=udonite
+ARG GROUPNAME=udonite
+ARG USERID=1000
+ARG GROUPID=1000
+RUN deluser --remove-home node && \
+ addgroup -g ${GROUPID} ${GROUPNAME} && \
+ adduser -D -u ${USERID} -G ${GROUPNAME} ${USERNAME} && \
+ mkdir /srv/udonite-server && chown ${USERNAME}:${GROUPNAME} /srv/udonite-server
+USER $USERNAME:$GROUPNAME
+
 WORKDIR /srv/udonite-server
-COPY ./Udonite-Server/package*.json ./
+COPY --chown=${USERNAME}:${GROUPNAME} ./Udonite-Server/package*.json ./
 
 RUN npm install
-COPY ./Udonite-Server .
-COPY ./default.yaml ./config/
+COPY --chown=${USERNAME}:${GROUPNAME} ./Udonite-Server .
+COPY --chown=${USERNAME}:${GROUPNAME} ./default.yaml ./config/
 
-EXPOSE 8000
 CMD [ "npm", "start" ]
