@@ -26,6 +26,8 @@ services:
       - udonite-server
     ports:
       - "80:80"
+    env_file:
+      - host.env
     volumes:
       - type: bind
         source: ./public_html
