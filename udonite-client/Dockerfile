@@ -1,7 +1,5 @@
 FROM node:16-alpine
 
-EXPOSE 8000
-
 ARG USERNAME=udonite
 ARG GROUPNAME=udonite
 ARG USERID=1000
