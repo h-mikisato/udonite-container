@@ -3,4 +3,4 @@ dice:
   url: https://test.example/api #bcDice-api server URL
   version: 2
 server:
-  url: https://test.example #Udonite server URL
+  url: https://__HOST_NAME__ # !!! DO NOT EDIT !!!

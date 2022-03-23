@@ -8,4 +8,5 @@ docker build \
   --build-arg GROUPNAME=$GROUPNAME \
   --build-arg GROUPID=$GROUPID \
   -t udonite/udonite ./udonite-client/
-docker run --rm --mount type=bind,source=$PWD/public_html,target=/var/www/public_html udonite/udonite
+docker run --rm --mount type=bind,source=$PWD/public_html,target=/var/www/public_html \
+  --env-file host.env udonite/udonite

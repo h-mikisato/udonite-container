@@ -12,6 +12,8 @@ services:
         - GROUPID=${GROUPID}
     image: udonite/udonite-server
     container_name: udonite-server
+    env_file:
+      - host.env
     volumes:
       - type: bind
         source: ./public_html

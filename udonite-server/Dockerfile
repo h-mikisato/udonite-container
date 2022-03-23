@@ -14,10 +14,11 @@ RUN deluser --remove-home node && \
 USER $USERNAME:$GROUPNAME
 
 WORKDIR /srv/udonite-server
+COPY --chown=${USERNAME}:${GROUPNAME} ./run.sh .
 COPY --chown=${USERNAME}:${GROUPNAME} ./Udonite-Server/package*.json ./
 
 RUN npm install
 COPY --chown=${USERNAME}:${GROUPNAME} ./Udonite-Server .
 COPY --chown=${USERNAME}:${GROUPNAME} ./default.yaml ./config/
 
-CMD [ "npm", "start" ]
+CMD [ "./run.sh" ]

@@ -1,17 +1,17 @@
 server:
   port: 8000 
-  url: 'https://localhost.example' 
+  url: 'https://__HOST_NAME__' # !! DO NOT EDIT !!
 db:
-  ip: '127.0.0.1' 
+  ip: '127.0.0.1'
   port: 27017
   user: ''
   password: ''
 storage:
-  imageDataPath: '/var/www/public_html/image/'
-  imageUrlPath: 'https://localhost.example/image/'
+  imageDataPath: '/var/www/public_html/image/' # !! DO NOT EDIT !!
+  imageUrlPath: 'https://__HOST_NAME__/image/' # !! DO NOT EDIT !!
   imageStorageMaxSize: 50  #MBtyte
-  audioDataPath: '/var/www/public_html/audio/'
-  audioUrlPath: 'https://localhost.example/audio/'
+  audioDataPath: '/var/www/public_html/audio/' # !! DO NOT EDIT !!
+  audioUrlPath: 'https://__HOST_NAME__/audio/' # !! DO NOT EDIT !!
   audioStorageMaxSize: 50  #MBtyte
 setting: 
   adminPassword: 'yourOwnPassword'
