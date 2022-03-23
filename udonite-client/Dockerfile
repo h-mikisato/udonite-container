@@ -7,7 +7,8 @@ ARG GROUPID=1000
 RUN deluser --remove-home node && \
  addgroup -g ${GROUPID} ${GROUPNAME} && \
  adduser -D -u ${USERID} -G ${GROUPNAME} ${USERNAME} && \
- mkdir /srv/udonite && chown ${USERNAME}:${GROUPNAME} /srv/udonite
+ mkdir /srv/udonite && chown ${USERNAME}:${GROUPNAME} /srv/udonite && \
+ npm install -g npm@"~8.5"
 USER $USERNAME:$GROUPNAME
 
 WORKDIR /srv/udonite
