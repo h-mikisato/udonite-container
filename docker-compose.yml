@@ -12,6 +12,7 @@ services:
         - GROUPID=${GROUPID}
     image: udonite/udonite-server
     container_name: udonite-server
+    restart: always
     env_file:
       - host.env
     volumes:
@@ -29,6 +30,7 @@ services:
     ports:
       - "80:80"
       - "443:443"
+    restart: always
     env_file:
       - host.env
     volumes:
