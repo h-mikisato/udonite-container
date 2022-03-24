@@ -13,19 +13,26 @@ server {
 
     ssl_certificate /etc/letsencrypt/live/${NGINX_HOST}/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/${NGINX_HOST}/privkey.pem;
+
+    ssl_session_timeout 1d;
+    ssl_session_cache shared:SSL:10m;
+    ssl_session_tickets off;
+    ssl_protocols TLSv1.3;
+    ssl_prefer_server_ciphers off;
+
+    ssl_stapling on;
+    ssl_stapling_verify on;
+
     ssl_trusted_certificate /etc/letsencrypt/live/${NGINX_HOST}/chain.pem;
+
+    resolver 1.1.1.1 1.0.0.1 valid=300s;
+    resolver_timeout 5s;
 
     client_body_buffer_size 128m;
     client_max_body_size 256m;
     client_body_temp_path /var/tmp/nginx;
 
-    add_header X-Frame-Options SAMEORIGIN;
-    add_header X-Content-Type-Options nosniff;
-    add_header Referrer-Policy same-origin;
-    add_header X-XSS-Protection "1; mode=block";
-    add_header Content-Security-Policy "frame-ancestors 'self'";
-    add_header Strict-Transport-Security "max-age=15552000" always;
-    add_header Cache-Control "no-cache, max-age=3600";
+    add_header Strict-Transport-Security "max-age=63072000" always;
 
     location ^~ /.well-known/acme-challenge/ {
         root /var/www/public_html;
