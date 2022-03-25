@@ -5,6 +5,7 @@
 !/letsencrypt/etc_letsencrypt/.gitkeep
 /letsencrypt/var_lib_letsencrypt/
 !/letsencrypt/var_lib_letsencrypt/.gitkeep
+/letsencrypt/renew/renewed
 
 /public_html/udonite/
 /public_html/audio/
