@@ -3,7 +3,15 @@ server {
     listen [::]:80;
     server_name ${NGINX_HOST};
     access_log off;
-    return 301 https://${NGINX_HOST}$request_uri;
+    location ^~ /.well-known/acme-challenge/ {
+        root /var/www/public_html;
+    }
+    location = /.well-known/acme-challenge/ {
+        return 404;
+    }
+    location / {
+        return 301 https://${NGINX_HOST}$request_uri;
+    }
 }
 
 server {
@@ -34,12 +42,6 @@ server {
 
     add_header Strict-Transport-Security "max-age=63072000" always;
 
-    location ^~ /.well-known/acme-challenge/ {
-        root /var/www/public_html;
-    }
-    location = /.well-known/acme-challenge/ {
-        return 404;
-    }
     location ^~ /udonite/ {
         root /var/www/public_html;
     }
