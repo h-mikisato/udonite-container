@@ -1,4 +1,4 @@
 #!/bin/sh
 set -e
 
-echo "USERNAME=`id -un`\nUSERID=`id -u`\nGROUPNAME=`id -gn`\nGROUPID=`id -g`" > .env
+echo "USERNAME=`id -un`"$'\n'"USERID=`id -u`"$'\n'"GROUPNAME=`id -gn`"$'\n'"GROUPID=`id -g`" > .env
