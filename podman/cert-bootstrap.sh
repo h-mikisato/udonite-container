@@ -2,13 +2,13 @@
 set -e
 . ./host.env
 
-podman build -t udonite/nginx-cert-bootstrap ./nginx-cert-bootstrap
-podman run --rm -p 80:80 -d --name nginx-cert-bootstrap \
+sudo podman build -t udonite/nginx-cert-bootstrap ./nginx-cert-bootstrap
+sudo -E podman run --rm -p 80:80 -d --name nginx-cert-bootstrap \
  --mount type=bind,source=$PWD/public_html,target=/var/www/public_html,ro=true,Z \
  --env-file=host.env \
  udonite/nginx-cert-bootstrap
 
-trap 'podman stop nginx-cert-bootstrap' EXIT INT HUP TERM
+trap 'sudo podman stop nginx-cert-bootstrap' EXIT INT HUP TERM
 
 podman run --rm -it \
  --mount type=bind,source=$PWD/public_html,target=/var/www/public_html,Z \
