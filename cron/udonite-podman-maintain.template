@@ -4,4 +4,6 @@ MAILTO=""
 
 0 */12 * * * __UDONITE_CONTAINER_USER__ cd __UDONITE_CONTAINER_DIR__; podman run --rm --mount type=bind,source=__UDONITE_CONTAINER_DIR__/public_html,target=/var/www/public_html --mount type=bind,source=__UDONITE_CONTAINER_DIR__/letsencrypt/etc_letsencrypt,target=/etc/letsencrypt --mount type=bind,source=__UDONITE_CONTAINER_DIR__/letsencrypt/var_lib_letsencrypt,target=/var/lib/letsencrypt --mount type=bind,source=__UDONITE_CONTAINER_DIR__/letsencrypt/renew,target=/srv/renew certbot/certbot -q renew --post-hook 'touch /srv/renew/renewed'
 30 */12 * * * root cd __UDONITE_CONTAINER_DIR__; [ -f ./letsencrypt/renew/renewed ] && podman exec udonite-nginx nginx -s reload && rm ./letsencrypt/renew/renewed
+
 0 3 * * * root podman image prune -f
+30 3 * * * __UDONITE_CONTAINER_USER__ podman image prune -f
