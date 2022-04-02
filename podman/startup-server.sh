@@ -17,3 +17,12 @@ fi
 . ./host.env
 cat podman/host.yml.template | sed -e s/__HOST_NAME__/${NGINX_HOST}/g > podman/host.yml
 chown $USERNAME. podman/host.yml
+
+podman play kube ./udonite-pod.yml --configmap podman/host.yml
+
+podman generate systemd -n udonite -f
+mv -Z *.service /etc/systemd/system/
+systemctl daemon-reload
+systemctl enable pod-udonite.service
+systemctl enable container-udonite-nginx.service
+systemctl enable container-udonite-server.service
