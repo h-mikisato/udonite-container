@@ -1,5 +1,6 @@
 /.env
 /host.env
+/podman/host.yml
 
 /letsencrypt/etc_letsencrypt/
 !/letsencrypt/etc_letsencrypt/.gitkeep
