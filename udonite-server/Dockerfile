@@ -21,4 +21,5 @@ RUN npm install
 COPY --chown=${USERNAME}:${GROUPNAME} ./Udonite-Server .
 COPY --chown=${USERNAME}:${GROUPNAME} ./default.yaml ./config/
 
+STOPSIGNAL SIGINT
 CMD [ "./run.sh" ]
