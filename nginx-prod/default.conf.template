@@ -42,8 +42,15 @@ server {
 
     add_header Strict-Transport-Security "max-age=63072000" always;
 
+    root /var/www/public_html;
+
     location ^~ /udonite/ {
-        root /var/www/public_html;
+    }
+
+    location ^~ /audio/ {
+    }
+
+    location ^~ /image/ {
     }
 
     location / {
