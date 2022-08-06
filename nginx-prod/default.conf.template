@@ -44,7 +44,8 @@ server {
 
     root /var/www/public_html;
 
-    location ^~ /udonite/ {
+    location ^~ /udonite {
+        try_files $uri $uri/ =404;
     }
 
     location ^~ /audio/ {
