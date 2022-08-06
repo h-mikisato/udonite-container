@@ -19,6 +19,9 @@ services:
       - type: bind
         source: ./public_html
         target: /var/www/public_html
+      - type: bind
+        source: ./data
+        target: /srv/udonite-server/data
   nginx-prod:
     build:
       context: ./nginx-prod

@@ -32,6 +32,8 @@ spec:
     volumeMounts:
     - mountPath: /var/www/public_html:Z
       name: udonite-container-public_html-host-0
+    - mountPath: /srv/udonite-server/data:Z
+      name: udonite-container-data-host-1
   - args:
     - nginx
     - -g
@@ -65,6 +67,10 @@ spec:
       path: ./public_html
       type: Directory
     name: udonite-container-public_html-host-0
+  - hostPath:
+      path: ./data
+      type: Directory
+    name: udonite-container-data-host-1
   - hostPath:
       path: ./letsencrypt/etc_letsencrypt
       type: Directory
