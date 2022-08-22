@@ -10,7 +10,7 @@ RUN deluser --remove-home node && \
  addgroup -g ${GROUPID} ${GROUPNAME} && \
  adduser -D -u ${USERID} -G ${GROUPNAME} ${USERNAME} && \
  mkdir /srv/udonite-server && chown ${USERNAME}:${GROUPNAME} /srv/udonite-server && \
- npm install -g npm@"~8"
+ npm install -g npm@"~8.15"
 USER $USERNAME:$GROUPNAME
 
 WORKDIR /srv/udonite-server
